@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="../css/styles.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="../css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="../css/component.css" />
+        <script src="../js/modernizr.custom.js"></script>
+    </head>
+    <body style="overflow : hidden">
+        <header><h1 style="text-align:center">LES VARIABLES</h1></header>
+        <div id="exercice3">
+            <ul>
+                <li>Créer une variable appelée variableToDisplay</li>
+                <li>L’initialiser avec une variable de type number</li>
+                <li>Créer une seconde variable et l’initialiser à la valeur variable2</li>
+                <li>Modifier la valeur de la variable dont la valeur par défaut est variable2</li>
+                <li>Créer un champ (div, span...) dans lequel sont affichées les variables variableToDisplay et celle dont la valeur par défaut est variable2</li>
+            </ul>
+        variableToDisplay = <span id="var1"></span> & maSecondeVariable = <span id="var2"></span><br/>
+        Mes variables sont <span id="variables"></span>
+        </div>
+        <script>
+            "use strict";
+
+            var variableToDisplay = 20;
+            var maSecondeVariable = "variable2";
+            maSecondeVariable = "ma nouvelle valeur pour la variable 2";
+
+            document.getElementById("var1").innerHTML = variableToDisplay;
+            document.getElementById("var2").innerHTML = maSecondeVariable;
+            document.getElementById("variables").innerHTML = variableToDisplay + " " + maSecondeVariable;
+        </script>
+        <script src="../js/classie.js"></script>
+        <script src="../js/gnmenu.js"></script>
+        <script>
+            new gnMenu(document.getElementById('gn-menu'));
+        </script>
+    </body>
+</html>

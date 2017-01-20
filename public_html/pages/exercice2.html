@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="../css/styles.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="../css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="../css/component.css" />
+        <script src="../js/modernizr.custom.js"></script>
+    </head>
+    <body>
+        <header><h1 style="text-align:center">LES VARIABLES</h1></header>
+        <br/><br/>
+        <div id="exercice2" style="font-family : Arial">
+            <div id="colonne1" style="float:left; width:300px">
+                <h2 style="text-align:left">Découvrons les variables et leur type.</h2>
+                Initialiser chaque variable avec un type différent.<br/>
+                <br/>
+                <span id="var0"></span> est de type <span id="typeVar0"></span><br/>
+                <span id="var1"></span> est de type <span id="typeVar1"></span><br/>
+                <span id="var2"></span> est de type <span id="typeVar2"></span><br/>
+                <span id="var3"></span> est de type <span id="typeVar3"></span><br/>
+                <span id="var4"></span> est de type <span id="typeVar4"></span><br/>
+                <br/>
+            </div>
+            <div style="width:20px; height: 80vh; float:left;"></div>
+            <div id="colonne2" style="float:left; height: 60vh; width:400px; border-left-style: solid; border-left-color: white">
+                <h2 style="text-align:left; margin-left:20px;">Affichons un objet Image.</h2>
+                <div id="col1" style="float:left; width:wrap-content; margin-left:20px;">
+                    <img id="changeonsLaSource"/>
+                </div>
+                <div style="width:5px; height:100vh; float:left"></div>
+                <div id="col2" style="float:left; width:30%;">
+                    <div id="ajoutonsUnElementImg"></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            "use strict";
+            //Découvrons les variables et leur type.
+            var var0 = [1, 4, "String"];
+            var var1 = "String";
+            var var2 = true;
+            var var3 = 20;
+            var var4;
+
+            for (var i = 0; i < 5; i++) {
+                document.getElementById("var" + i).innerHTML = eval('var' + i);
+                document.getElementById("typeVar" + i).innerHTML = typeof eval("var" + i);
+            }
+
+            //Affichons un objet Image.
+            var imgAAfficher = new Image();
+            imgAAfficher.src = "../img/campus-centre.png";
+            //Ajoutons la source de l'image à l'élement Img
+            document.getElementById("changeonsLaSource").src = imgAAfficher.src;
+            //Ajoutons un élément Img dans la div 
+            document.getElementById("ajoutonsUnElementImg").appendChild(imgAAfficher);
+        </script>
+        <script src="../js/classie.js"></script>
+        <script src="../js/gnmenu.js"></script>
+        <script>
+            new gnMenu(document.getElementById('gn-menu'));
+        </script>
+    </body>
+</html>

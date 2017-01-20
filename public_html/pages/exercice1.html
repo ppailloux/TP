@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="../css/styles.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="../css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="../css/component.css" />
+        <script src="../js/modernizr.custom.js"></script>
+    </head>
+    <body style="overflow : hidden">
+        <header><h1 style="text-align:center">HELLO WORLD !</h1></header>
+        <div id="exercice1" style="width:150%;">
+            Nous allons écrire nos premières lignes de code en JS.<br/>
+            Allez dans le code de la page exercice 1 et affichez votre premier "Hello World !".<br/>
+            <br/>
+            <br/>
+            <input style="margin-left : 25%"  type="button" id="runCode" value="Run javascript code." onclick="runCode()"/>
+        </div>
+        <script>
+            "use strict";
+            //Déclaration & initialisation d'une variable globale
+            var maVariableGlobale = "varGlobale";
+            function runCode() {
+                //Ecrivez vos premières lignes de javascript ici.
+                //Le fameux Hello World !
+                alert("Hello World !"); 
+                alert("On affiche maVariableGlobale " + maVariableGlobale);
+                //Déclaration & initialisation d'une variable locale
+                var maVariableLocale = "varLocale";
+                alert("On affiche dans la fonction maVariableLocale " + maVariableLocale);
+            }
+            alert("On essaie d'afficher maVariableLocale " + maVariableLocale);
+        </script>
+        <script src="../js/classie.js"></script>
+        <script src="../js/gnmenu.js"></script>
+        <script>
+            new gnMenu(document.getElementById('gn-menu'));
+        </script>
+    </body>
+</html>

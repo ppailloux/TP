@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="../css/styles.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="../css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="../css/component.css" />
+        <script src="../js/modernizr.custom.js"></script>
+    </head>
+    <body style="overflow : hidden">
+        <header><h1 style="text-align:center">LES OPERATEURS LOGIQUES - DE MORGAN</h1></header>
+        <br/>
+        <br/>
+        <div>
+            <div id="exercice5" style="float:left; width:350px; margin-left:20px">
+                <form name="departmentListForm"> 
+                    Dites-moi dans quel département vous vivez et je vous dirai dans quelle région il se situe.<br/> 
+                    <br/>
+                    <select name="departmentList" onChange="getRegion(value)"> 
+                        <option SELECTED>-- Sélectionnez le département où vous vivez --</option> 
+                    </select> 
+                </form>
+                <br/>
+                <br/>
+                <div id="resultatRegion"></div>
+            </div>
+            <div style="width:20px; height: 20vh; float:left;"></div>
+            <div id="exercice5bis" style="float:left; width:300px; height:20vh; margin-left:20px; border-left-style:solid; border-left-color:white" >
+                <span style="margin-left:20px;">Dites-moi quel âge vous avez</span><br/>
+                <span style="margin-left:20px;">et je vous dirai qui vous êtes.</span><br/> 
+                <br/>
+                <input style="margin-left:20px;" type="radio" name="genre" id="M" value="M" onchange="changeGenre()">M</input>
+                <input type="radio" name="genre" id="F" value ="F" onchange="changeGenre()">F</input>
+                <input id="age" style="margin-left:20px;" type="text" onkeypress='return (event.which >= 48 && event.which <= 57) || event.which == 8 || event.which === 127' onkeyup="giveFeature(value)" value=""/>
+                <br/>
+                <br/>
+                <div id="resultat"></div>
+            </div>
+        </div>
+        <img id="deMorgan" src="../img/tableau-produit-logique.png" style="width:100%;">
+        <script src="../js/age.js"></script>  
+        <script src="../js/regions.js"></script>
+        <script src="../js/classie.js"></script>
+        <script src="../js/gnmenu.js"></script>
+        <script>
+            new gnMenu(document.getElementById('gn-menu'));
+        </script>
+    </body>
+</html>

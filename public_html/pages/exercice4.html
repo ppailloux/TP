@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="../css/styles.css"/>
+        <link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="../css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="../css/component.css" />
+        <script src="../js/modernizr.custom.js"></script>
+    </head>
+    <body style="overflow : hidden">
+        <header><h1 style="text-align:center">IF... ELSE IF... ELSE & TERNAIRE</h1></header>
+        <div id="exercice4">
+            Dans le code source se trouve un programme qui permet de simuler via des boîtes de dialogues une calculatrice. Vous devez corriger ce code afin que la "calculatrice" ci-dessous fonctionne lorsque vous cliquez sur le bouton.<br/>
+            De plus, vous devez ajouter un ternaire dans cet exercice de quelque manière que ce soit.
+            <br/>
+            Voici le comportement qu'elle doit avoir :
+            <ul>
+                <li>Demander à l’utilisateur de saisir un nombre; 
+                    <ul>
+                        <li>&rArr; Attention, n’oubliez pas de vérifier ce qui a été saisi !</li>
+                        <li>La commande renvoie un objet de type string, il faut le parser pour le tester!</li>                  
+                    </ul> 
+                </li>
+                <li>Demander à l’utilisateur de saisir un second nombre;</li>
+                <li>Demander à l’utilisateur s’il souhaite additionner les nombres,</li>
+                <li>Si oui, renvoyer le résultat. Il sera de même à chaque étape.</li>
+                <li>Si non, lui demander s’il souhaite soustraire le second nombre au premier.</li>
+                <li>Si non, lui demander s’il souhaite multiplier les nombres.</li>
+                <li>Si non, lui demander s’il souhaite diviser le premier nombre par le second.
+                    <ul>
+                        <li>&rArr; Attention pas de division possible par 0 ! Si l’utilisateur a saisi 0,<br/>
+                            lui faire ressaisir le second nombre.</li>
+                    </ul>
+                </li>
+            </ul>
+            <br/>
+
+            <input style="margin-left : 40%" type="button" id="calculatrice" value="Utiliser la calculatrice" onclick="calcule()"/>
+
+        </div>
+        <script>
+            function calcule() {
+                //Saisie du premier nombre
+                var nb1 = prompt('Saisissez un premier nombre.');
+                nb1 = parseInt(nb1);
+
+                while (isNaN(nb1)) {
+                    nb1 = prompt('Vous n\'avez pas saisi un nombre. Veuillez resaisir un premier nombre.');
+                    nb1 = parseInt(nb1);
+                }
+
+                //Saisie du second nombre
+                var nb2 = prompt('Saisissez un second nombre.');
+                nb2 = parseInt(nb2);
+                while (isNaN(nb2)) {
+                    nb2 = prompt('Vous n\'avez pas saisi un nombre. Veuillez resaisir un second nombre.');
+                    nb2 = parseInt(nb2);
+                }
+
+                /* CORRECTION 1 */
+                var op = prompt("Quelle opération souhaitez-vous faire avec les nombres " + nb1 + ' et ' + nb2 + " ?. Additionner ? Saisissez +. Soustraire ? Saisissez -. Multiplier ? Saisissez *. Ou Diviser ? Saisissez /.");
+
+                switch (op) {
+                    case "+" :
+                        var res = nb1 + nb2;
+                        alert('Le résultat de ' + nb1 + ' + ' + nb2 + ' est ' + res + '.');
+                        break;
+                    case "-" :
+                        var res = nb1 - nb2;
+                        alert('Le résultat de ' + nb1 + ' - ' + nb2 + ' est ' + res + '.');
+                        break;
+                    case "*" :
+                        var res = nb1 * nb2;
+                        alert('Le résultat de ' + nb1 + ' * ' + nb2 + ' est ' + res + '.');
+                        break;
+                    case "/" :
+                        while (nb2 === 0) {
+                            nb2 = prompt('Le nombre par lequel vous souhaitez diviser est égal à 0. Veuillez resaisir un nombre différent de 0.');
+                            nb2 = parseInt(nb2);
+                        }
+                        var res = nb1 / nb2;
+                        alert('Le résultat de ' + nb1 + ' / ' + nb2 + ' est ' + res + '.');
+                        break;
+                    default :
+                        alert('Cette opération n\'existe pas.');
+                }
+
+
+                /*CORRECTION 2*/
+                //Addition des nombres ou pas
+                if (confirm('Voulez-vous additionner les nombres ' + nb1 + ' et ' + nb2 + ' ?')) {
+                    var res = nb1 + nb2;
+                    alert('Le résultat de ' + nb1 + ' + ' + nb2 + ' est ' + res + '.');
+                }
+                //Soustraction des nombres ou pas
+                else if (confirm('Voulez-vous soustraire les nombres ' + nb1 + ' et ' + nb2 + ' ?')) {
+                    var res = nb1 - nb2;
+                    alert('Le résultat de ' + nb1 + ' - ' + nb2 + ' est ' + res + '.');
+                }
+                //Multiplication des nombres ou pas 
+                else if (confirm('Voulez-vous multiplier les nombres ' + nb1 + ' et ' + nb2 + ' ?')) {
+                    var res = nb1 * nb2;
+                    alert('Le résultat de ' + nb1 + ' * ' + nb2 + ' est ' + res + '.');
+                }
+                //Division des nombres ou pas
+                else if (confirm('Voulez-vous diviser le nombre ' + nb1 + ' par ' + nb2 + ' ?')) {
+                    while (nb2 === 0) {
+                        nb2 = prompt('Le nombre par lequel vous souhaitez diviser est égal à 0. Veuillez resaisir un nombre différent de 0.');
+                        nb2 = parseInt(nb2);
+                    }
+                    var res = nb1 / nb2;
+                    alert('Le résultat de ' + nb1 + ' par ' + nb2 + ' est ' + res + '.');
+                }
+                //Abandon
+                else {
+                    alert('Vous n\'avez rien demandé de faire.');
+                }
+            }
+        </script>
+        <script src="../js/classie.js"></script>
+        <script src="../js/gnmenu.js"></script>
+        <script>
+            new gnMenu(document.getElementById('gn-menu'));
+        </script>
+    </body>
+</html>
